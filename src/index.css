@@ -44,6 +44,10 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     @apply bg-background text-foreground font-['Space_Grotesk'];
     overflow-x: hidden;
@@ -55,6 +59,12 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    background-attachment: scroll;
+  }
 }
 
 .gradient-text {
@@ -89,8 +99,20 @@
   transition: transform 0.5s ease;
 }
 
-.card-3d:hover {
-  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+@media (hover: hover) {
+  .card-3d:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .card-3d {
+    transition: transform 0.3s ease;
+  }
+  
+  .card-3d:active {
+    transform: translateY(-5px);
+  }
 }
 
 .perspective {
@@ -106,19 +128,15 @@
   transform: rotateY(180deg);
 }
 
-/* For mobile menu */
-.mobile-menu {
-  clip-path: circle(0% at top right);
-  transition: clip-path 0.5s ease-in-out;
-}
-
-.mobile-menu.open {
-  clip-path: circle(150% at top right);
-}
-
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+}
+
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -132,4 +150,31 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: theme('colors.portfolio.accent');
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  a,
+  .clickable {
+    @apply min-h-10 min-w-10;
+  }
+  
+  input, 
+  select, 
+  textarea {
+    @apply text-base;
+  }
+}
+
+/* Improved animations for mobile */
+@media (prefers-reduced-motion) {
+  .animate-float,
+  .animate-fade-in,
+  .card-3d,
+  .animate-rotate-slow {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
 }

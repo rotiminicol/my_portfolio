@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "@/components/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SkillCard from "@/components/SkillCard";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const skillItems = [
   {
@@ -192,29 +193,35 @@ const skillCategories = [
 ];
 
 const Skills = () => {
+  const isMobile = useIsMobile();
+
   return (
     <Layout className="bg-gradient-to-b from-background to-secondary/20">
-      <section className="container mx-auto px-4 py-20 min-h-[calc(100vh-80px)]">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center gradient-text">
+      <section className="container mx-auto px-4 py-10 md:py-20 min-h-[calc(100vh-80px)]">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center gradient-text">
           My Skills
         </h1>
-        <p className="text-center mb-12 max-w-2xl mx-auto text-muted-foreground">
+        <p className="text-center mb-8 md:mb-12 max-w-2xl mx-auto text-muted-foreground text-sm md:text-base">
           I've developed a diverse set of skills over the years. Here's a comprehensive 
           overview of my technical expertise and tools I work with.
         </p>
 
         <Tabs defaultValue="frontend" className="w-full max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 mb-8">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 mb-6 md:mb-8 h-auto flex-wrap">
             {skillCategories.map((category) => (
-              <TabsTrigger key={category.category} value={category.category}>
-                {category.name}
+              <TabsTrigger 
+                key={category.category} 
+                value={category.category}
+                className="py-1.5 px-2 text-xs md:text-sm whitespace-normal text-center h-auto min-h-9"
+              >
+                {isMobile ? category.name.replace(' Development', '').replace(' Tools', '') : category.name}
               </TabsTrigger>
             ))}
           </TabsList>
 
           {skillCategories.map((category) => (
             <TabsContent key={category.category} value={category.category} className="animate-fade-in">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
                 {category.skills.map((skill, index) => (
                   <SkillCard
                     key={index}
@@ -229,9 +236,9 @@ const Skills = () => {
           ))}
         </Tabs>
 
-        <div className="mt-20">
-          <h2 className="text-2xl font-bold mb-8 text-center">Other Skills</h2>
-          <div className="flex flex-wrap justify-center gap-3">
+        <div className="mt-10 md:mt-20">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center">Other Skills</h2>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
             {[
               "UI/UX Design", 
               "SEO", 
@@ -249,7 +256,7 @@ const Skills = () => {
             ].map((skill, index) => (
               <span 
                 key={index} 
-                className="px-4 py-2 bg-secondary rounded-full text-sm font-medium animate-float"
+                className="px-2 md:px-4 py-1 md:py-2 bg-secondary rounded-full text-xs md:text-sm font-medium animate-float"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
                 {skill}
