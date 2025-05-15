@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -58,7 +57,7 @@ const Home = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-portfolio-purple to-portfolio-teal rounded-full blur opacity-70"></div>
             <img
               ref={profileRef}
-              src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyMzA2MDk4MA&ixlib=rb-1.2.1&q=80&w=1080"
+              src="/hero 3.png"
               alt="Oluwadurotimi Obabiyi-Nicol"
               className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full transition-transform duration-200 ease-out relative"
             />
