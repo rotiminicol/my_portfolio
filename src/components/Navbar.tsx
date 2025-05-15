@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -16,6 +17,7 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +32,21 @@ const Navbar = () => {
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobile) {
+      if (mobileMenuOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
+      }
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [mobileMenuOpen, isMobile]);
 
   return (
     <nav
@@ -63,7 +80,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-foreground z-50"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
         >
@@ -104,24 +121,29 @@ const Navbar = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "mobile-menu fixed top-0 right-0 h-screen w-full bg-background z-40 flex flex-col items-center justify-center space-y-8 md:hidden",
-          mobileMenuOpen ? "open" : ""
+          "fixed inset-0 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center z-40 transition-opacity duration-300 md:hidden",
+          mobileMenuOpen 
+            ? "opacity-100 pointer-events-auto" 
+            : "opacity-0 pointer-events-none"
         )}
       >
-        {navLinks.map((link) => (
-          <Link
-            key={link.name}
-            to={link.path}
-            className={cn(
-              "text-2xl font-medium transition-colors hover:text-primary",
-              location.pathname === link.path
-                ? "text-primary"
-                : "text-foreground"
-            )}
-          >
-            {link.name}
-          </Link>
-        ))}
+        <div className="flex flex-col items-center justify-center space-y-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={cn(
+                "text-2xl font-medium transition-colors relative",
+                location.pathname === link.path
+                  ? "text-primary after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-r after:from-portfolio-purple after:to-portfolio-teal"
+                  : "text-foreground hover:text-primary"
+              )}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );

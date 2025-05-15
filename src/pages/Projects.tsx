@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const projectCategories = ["All", "Frontend", "Full Stack", "Mobile"];
 
@@ -216,6 +217,7 @@ const projects = [
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("All");
+  const isMobile = useIsMobile();
 
   const filteredProjects = activeCategory === "All" 
     ? projects 
@@ -223,71 +225,72 @@ const Projects = () => {
 
   return (
     <Layout>
-      <section className="container mx-auto px-4 py-20 min-h-[calc(100vh-80px)]">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center gradient-text">
+      <section className="container mx-auto px-4 py-10 md:py-20 min-h-[calc(100vh-80px)]">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center gradient-text">
           My Projects
         </h1>
-        <p className="text-center mb-6 max-w-2xl mx-auto text-muted-foreground">
+        <p className="text-center mb-4 md:mb-6 max-w-2xl mx-auto text-muted-foreground text-sm md:text-base">
           Here are some of my recent projects. Each one was built with careful attention 
           to user experience, performance, and code quality.
         </p>
         
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-3 md:mb-4">
           <a 
             href="https://github.com/rotiminicol" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+            className="flex items-center gap-1 md:gap-2 text-sm md:text-base text-primary hover:text-primary/80 transition-colors"
           >
-            <Github className="h-5 w-5" />
+            <Github className="h-4 w-4 md:h-5 md:w-5" />
             <span>github.com/rotiminicol</span>
           </a>
         </div>
 
-        <div className="flex justify-center mb-12 flex-wrap gap-2">
+        <div className="flex justify-center mb-8 md:mb-12 flex-wrap gap-2">
           {projectCategories.map((category) => (
             <Button
               key={category}
               variant={activeCategory === category ? "default" : "outline"}
               onClick={() => setActiveCategory(category)}
-              className="m-1"
+              className="text-xs md:text-sm py-1 h-8 md:h-10"
+              size={isMobile ? "sm" : "default"}
             >
               {category}
             </Button>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {filteredProjects.map((project) => (
             <Card 
               key={project.id} 
               className="overflow-hidden perspective card-3d border-none bg-secondary/40"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-36 md:h-48 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
                 />
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
+              <CardContent className="p-4 md:p-6">
+                <h3 className="text-base md:text-xl font-bold mb-1 md:mb-2">{project.title}</h3>
+                <p className="text-xs md:text-sm text-muted-foreground mb-3 md:mb-4 line-clamp-3">{project.description}</p>
+                <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-4">
                   {project.technologies.map((tech, index) => (
-                    <Badge key={index} variant="outline" className="bg-primary/10">
+                    <Badge key={index} variant="outline" className="bg-primary/10 text-[10px] md:text-xs px-1.5 py-0.5">
                       {tech}
                     </Badge>
                   ))}
                 </div>
               </CardContent>
-              <CardFooter className="px-6 pb-6 pt-0 flex justify-between">
-                <Button variant="outline" asChild>
+              <CardFooter className="px-4 md:px-6 pb-4 md:pb-6 pt-0 flex justify-between">
+                <Button variant="outline" asChild size={isMobile ? "sm" : "default"} className="text-xs md:text-sm">
                   <a href={project.codeUrl} target="_blank" rel="noopener noreferrer">
                     Code
                   </a>
                 </Button>
-                <Button asChild>
+                <Button asChild size={isMobile ? "sm" : "default"} className="text-xs md:text-sm">
                   <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                     Live Demo
                   </a>

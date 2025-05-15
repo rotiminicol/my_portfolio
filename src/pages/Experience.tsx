@@ -3,6 +3,7 @@ import React, { useRef, useEffect } from "react";
 import Layout from "@/components/Layout";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase, GraduationCap } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const workExperiences = [
   {
@@ -117,6 +118,7 @@ const stats = [
 
 const Experience = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   useEffect(() => {
     const observerOptions = {
@@ -150,31 +152,31 @@ const Experience = () => {
 
   return (
     <Layout>
-      <section className="container mx-auto px-4 py-20 min-h-[calc(100vh-80px)]">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center gradient-text">
+      <section className="container mx-auto px-4 py-10 md:py-20 min-h-[calc(100vh-80px)]">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center gradient-text">
           Work Experience
         </h1>
-        <p className="text-center mb-8 max-w-2xl mx-auto text-muted-foreground">
+        <p className="text-center mb-6 md:mb-8 max-w-2xl mx-auto text-muted-foreground text-sm md:text-base">
           My professional journey has given me the opportunity to work with talented
           teams and build innovative solutions across different industries.
         </p>
 
         {/* Statistics */}
-        <div className="grid grid-cols-2 gap-6 max-w-md mx-auto mb-16">
+        <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-md mx-auto mb-8 md:mb-16">
           {stats.map((stat, index) => (
             <Card key={index} className="border-none bg-secondary/50">
-              <CardContent className="p-6 text-center">
-                <p className="text-4xl font-bold gradient-text mb-2">{stat.number}+</p>
-                <p className="text-muted-foreground">{stat.label}</p>
+              <CardContent className="p-4 md:p-6 text-center">
+                <p className="text-2xl md:text-4xl font-bold gradient-text mb-1 md:mb-2">{stat.number}+</p>
+                <p className="text-xs md:text-sm text-muted-foreground">{stat.label}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
         {/* Work Experience */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-            <Briefcase className="h-6 w-6 text-portfolio-purple" />
+        <div className="mb-12 md:mb-20">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center gap-2">
+            <Briefcase className="h-5 w-5 md:h-6 md:w-6 text-portfolio-purple" />
             <span>Professional Experience</span>
           </h2>
           
@@ -186,33 +188,35 @@ const Experience = () => {
             {workExperiences.map((exp, index) => (
               <div
                 key={exp.id}
-                className={`timeline-item relative mb-16 md:mb-24 flex ${
+                className={`timeline-item relative mb-8 md:mb-16 lg:mb-24 flex ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-background border-4 border-portfolio-purple z-10"></div>
+                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 md:w-8 md:h-8 rounded-full bg-background border-3 md:border-4 border-portfolio-purple z-10"></div>
                 
                 {/* Content */}
-                <div className={`pl-16 md:pl-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
+                <div className={`pl-12 md:pl-0 md:w-1/2 ${
+                  index % 2 === 0 ? "md:pr-12 lg:pr-16" : "md:pl-12 lg:pl-16"
+                }`}>
                   <Card className="shadow-lg border-none bg-secondary">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold mb-1">{exp.role}</h3>
-                      <h4 className="text-portfolio-purple mb-2">{exp.company}</h4>
-                      <div className="flex justify-between mb-4">
-                        <p className="text-sm text-muted-foreground">{exp.period}</p>
-                        <p className="text-sm text-muted-foreground">{exp.location}</p>
+                    <CardContent className="p-4 md:p-6">
+                      <h3 className="text-lg md:text-xl font-bold mb-1">{exp.role}</h3>
+                      <h4 className="text-portfolio-purple mb-2 text-sm md:text-base">{exp.company}</h4>
+                      <div className="flex justify-between mb-3 md:mb-4">
+                        <p className="text-xs md:text-sm text-muted-foreground">{exp.period}</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{exp.location}</p>
                       </div>
-                      <ul className="mb-4 space-y-2 list-disc pl-5">
+                      <ul className="mb-3 md:mb-4 space-y-1 md:space-y-2 list-disc pl-4 md:pl-5 text-xs md:text-sm">
                         {exp.description.map((item, i) => (
                           <li key={i}>{item}</li>
                         ))}
                       </ul>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-1 md:gap-2">
                         {exp.technologies.map((tech, i) => (
                           <span
                             key={i}
-                            className="text-xs px-2 py-1 rounded-full bg-primary/10"
+                            className="text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 md:py-1 rounded-full bg-primary/10"
                           >
                             {tech}
                           </span>
@@ -227,9 +231,9 @@ const Experience = () => {
         </div>
         
         {/* Education */}
-        <div className="mb-20">
-          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-            <GraduationCap className="h-6 w-6 text-portfolio-purple" />
+        <div className="mb-12 md:mb-20">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 flex items-center gap-2">
+            <GraduationCap className="h-5 w-5 md:h-6 md:w-6 text-portfolio-purple" />
             <span>Education</span>
           </h2>
           
@@ -241,24 +245,26 @@ const Experience = () => {
             {education.map((edu, index) => (
               <div
                 key={edu.id}
-                className={`timeline-item relative mb-16 md:mb-24 flex ${
+                className={`timeline-item relative mb-8 md:mb-16 lg:mb-24 flex ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-background border-4 border-portfolio-teal z-10"></div>
+                <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-6 h-6 md:w-8 md:h-8 rounded-full bg-background border-3 md:border-4 border-portfolio-teal z-10"></div>
                 
                 {/* Content */}
-                <div className={`pl-16 md:pl-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
+                <div className={`pl-12 md:pl-0 md:w-1/2 ${
+                  index % 2 === 0 ? "md:pr-12 lg:pr-16" : "md:pl-12 lg:pl-16"
+                }`}>
                   <Card className="shadow-lg border-none bg-secondary">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold mb-1">{edu.degree}</h3>
-                      <h4 className="text-portfolio-teal mb-2">{edu.institution}</h4>
-                      <div className="flex justify-between mb-4">
-                        <p className="text-sm text-muted-foreground">{edu.period}</p>
-                        <p className="text-sm text-muted-foreground">{edu.location}</p>
+                    <CardContent className="p-4 md:p-6">
+                      <h3 className="text-lg md:text-xl font-bold mb-1">{edu.degree}</h3>
+                      <h4 className="text-portfolio-teal mb-2 text-sm md:text-base">{edu.institution}</h4>
+                      <div className="flex justify-between mb-3 md:mb-4">
+                        <p className="text-xs md:text-sm text-muted-foreground">{edu.period}</p>
+                        <p className="text-xs md:text-sm text-muted-foreground">{edu.location}</p>
                       </div>
-                      {edu.description && <p>{edu.description}</p>}
+                      {edu.description && <p className="text-xs md:text-sm">{edu.description}</p>}
                     </CardContent>
                   </Card>
                 </div>
@@ -267,16 +273,16 @@ const Experience = () => {
           </div>
         </div>
         
-        <div className="mt-24">
-          <h2 className="text-2xl font-bold mb-8 text-center">Companies I've Worked With</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div className="mt-12 md:mt-24">
+          <h2 className="text-xl md:text-2xl font-bold mb-6 md:mb-8 text-center">Companies I've Worked With</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto">
             {['Arigo', 'CASTLEY GROUP', 'Cowris Tech', 'Sehder', 'Bfree Africa'].map((company, index) => (
               <div 
                 key={index} 
-                className="flex items-center justify-center h-24 bg-secondary/30 rounded-md animate-float"
+                className="flex items-center justify-center h-16 md:h-24 bg-secondary/30 rounded-md animate-float text-center px-2"
                 style={{ animationDelay: `${index * 0.2}s` }}
               >
-                <span className="text-xl font-bold opacity-70">{company}</span>
+                <span className="text-sm md:text-xl font-bold opacity-70">{company}</span>
               </div>
             ))}
           </div>

@@ -50,21 +50,21 @@ const Contact = () => {
 
   return (
     <Layout>
-      <section className="container mx-auto px-4 py-20 min-h-[calc(100vh-80px)]">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center gradient-text">
+      <section className="container mx-auto px-4 py-10 md:py-20 min-h-[calc(100vh-80px)]">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-4 text-center gradient-text">
           Contact Me
         </h1>
-        <p className="text-center mb-12 max-w-2xl mx-auto text-muted-foreground">
+        <p className="text-center mb-8 md:mb-12 max-w-2xl mx-auto text-muted-foreground text-sm md:text-base">
           Have a project in mind or just want to say hi? Feel free to reach out and I'll get back to you as soon as possible.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          <Card className="shadow-lg border-none bg-secondary/30 perspective card-3d">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+          <Card className="shadow-lg border-none bg-secondary/30 perspective card-3d order-2 md:order-1">
+            <CardContent className="p-6 md:p-8">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Get In Touch</h2>
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div>
-                  <label htmlFor="name" className="block mb-2 text-sm">
+                  <label htmlFor="name" className="block mb-1 md:mb-2 text-xs md:text-sm">
                     Your Name
                   </label>
                   <Input
@@ -78,7 +78,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block mb-2 text-sm">
+                  <label htmlFor="email" className="block mb-1 md:mb-2 text-xs md:text-sm">
                     Your Email
                   </label>
                   <Input
@@ -93,7 +93,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block mb-2 text-sm">
+                  <label htmlFor="subject" className="block mb-1 md:mb-2 text-xs md:text-sm">
                     Subject
                   </label>
                   <Input
@@ -107,7 +107,7 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block mb-2 text-sm">
+                  <label htmlFor="message" className="block mb-1 md:mb-2 text-xs md:text-sm">
                     Message
                   </label>
                   <Textarea
@@ -117,7 +117,7 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Tell me about your project..."
                     required
-                    className="min-h-32 bg-background/50"
+                    className="min-h-24 md:min-h-32 bg-background/50"
                   />
                 </div>
                 <Button
@@ -131,29 +131,29 @@ const Contact = () => {
             </CardContent>
           </Card>
 
-          <div className="space-y-8 flex flex-col justify-center">
+          <div className="space-y-6 md:space-y-8 flex flex-col justify-center order-1 md:order-2">
             <div className="animate-float" style={{ animationDelay: "0s" }}>
-              <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+              <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 flex items-center gap-2">
                 <Mail className="text-portfolio-purple" size={20} />
                 Email
               </h3>
-              <a href="mailto:rotiminicol117@gmail.com" className="text-portfolio-purple hover:underline">
+              <a href="mailto:rotiminicol117@gmail.com" className="text-portfolio-purple hover:underline text-sm md:text-base break-all">
                 rotiminicol117@gmail.com
               </a>
             </div>
             
             <div className="animate-float" style={{ animationDelay: "0.2s" }}>
-              <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+              <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2 flex items-center gap-2">
                 <Phone className="text-portfolio-purple" size={20} />
                 Phone
               </h3>
-              <a href="tel:+2348162048090" className="hover:text-portfolio-purple hover:underline transition-colors">
+              <a href="tel:+2348162048090" className="hover:text-portfolio-purple hover:underline transition-colors text-sm md:text-base">
                 +234 816 204 8090
               </a>
             </div>
             
             <div className="animate-float" style={{ animationDelay: "0.4s" }}>
-              <h3 className="text-xl font-bold mb-2">Social Media</h3>
+              <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Social Media</h3>
               <div className="flex space-x-4">
                 <a
                   href="https://github.com/rotiminicol"
@@ -162,7 +162,7 @@ const Contact = () => {
                   aria-label="GitHub"
                   className="text-foreground hover:text-portfolio-purple transition-colors"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/rotimi-nicol-2a6252265/"
@@ -171,7 +171,7 @@ const Contact = () => {
                   aria-label="LinkedIn"
                   className="text-foreground hover:text-portfolio-purple transition-colors"
                 >
-                  <Linkedin />
+                  <Linkedin size={22} />
                 </a>
                 <a
                   href="#"
@@ -180,19 +180,19 @@ const Contact = () => {
                   aria-label="Twitter"
                   className="text-foreground hover:text-portfolio-purple transition-colors"
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
                 </a>
               </div>
             </div>
             
             <div className="animate-float" style={{ animationDelay: "0.6s" }}>
-              <h3 className="text-xl font-bold mb-2">Location</h3>
-              <p>Lagos, Nigeria</p>
+              <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Location</h3>
+              <p className="text-sm md:text-base">Lagos, Nigeria</p>
             </div>
             
             <div className="animate-float" style={{ animationDelay: "0.8s" }}>
-              <h3 className="text-xl font-bold mb-2">Availability</h3>
-              <p>I'm currently available for freelance work and full-time opportunities.</p>
+              <h3 className="text-lg md:text-xl font-bold mb-1 md:mb-2">Availability</h3>
+              <p className="text-sm md:text-base">I'm currently available for freelance work and full-time opportunities.</p>
             </div>
           </div>
         </div>
