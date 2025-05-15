@@ -33,7 +33,7 @@ const Home = () => {
       <section className="container mx-auto px-4 py-20 flex flex-col-reverse md:flex-row items-center justify-between min-h-[calc(100vh-80px)]">
         <div className="md:w-1/2 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 text-shadow">
-            Hi, I'm <span className="gradient-text">Your Name</span>
+            Hi, I'm <span className="gradient-text">Oluwadurotimi Obabiyi-Nicol</span>
           </h1>
           <h2 className="text-2xl md:text-3xl mb-6 text-muted-foreground">
             Full-Stack Developer & Designer
@@ -59,7 +59,7 @@ const Home = () => {
             <img
               ref={profileRef}
               src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8fHx8fHx8MTYyMzA2MDk4MA&ixlib=rb-1.2.1&q=80&w=1080"
-              alt="Your Name"
+              alt="Oluwadurotimi Obabiyi-Nicol"
               className="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full transition-transform duration-200 ease-out relative"
             />
           </div>
