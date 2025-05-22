@@ -1,4 +1,3 @@
-
 import React from "react";
 import Layout from "@/components/Layout";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -126,24 +125,155 @@ const skillItems = [
     desc: "In-memory Database",
     brandColor: "#DC382D",
   },
-  // Additional skills
   {
-    imgSrc: "https://cdn-icons-png.flaticon.com/512/1475/1475277.png", // Generic API icon for Xano
+    imgSrc: "https://cdn-icons-png.flaticon.com/512/1475/1475277.png",
     label: "Xano",
     desc: "Backend API Builder",
     brandColor: "#5D4FFF",
   },
   {
-    imgSrc: "https://weweb.io/favicon/apple-touch-icon.png", // WeWeb icon
+    imgSrc: "https://weweb.io/favicon/apple-touch-icon.png",
     label: "WeWeb",
     desc: "Web App Builder",
     brandColor: "#2C76EE",
   },
   {
-    imgSrc: "https://lovable.ai/lovable-favicon.png", // Lovable icon
-    label: "Lovable",
-    desc: "AI Code Assistant",
-    brandColor: "#FF4584",
+    imgSrc: "https://cdn.simpleicons.org/java/0A0A0A",
+    label: "Java",
+    desc: "Programming Language",
+    brandColor: "#007396",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/python/0A0A0A",
+    label: "Python",
+    desc: "Programming Language",
+    brandColor: "#3776AB",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/spring/0A0A0A",
+    label: "Spring Boot",
+    desc: "Java Framework",
+    brandColor: "#6DB33F",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/python/0A0A0A",
+    label: "Data Science",
+    desc: "Data Analysis",
+    brandColor: "#3776AB",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/microsoftsqlserver/0A0A0A",
+    label: "SQL",
+    desc: "Query Language",
+    brandColor: "#CC2927",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/postgresql/0A0A0A",
+    label: "PostgreSQL",
+    desc: "Relational Database",
+    brandColor: "#336791",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/csharp/0A0A0A",
+    label: "C#",
+    desc: "Programming Language",
+    brandColor: "#239120",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/dribbble/0A0A0A",
+    label: "Dribbble",
+    desc: "Design Community",
+    brandColor: "#EA4C89",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/webflow/0A0A0A",
+    label: "Webflow",
+    desc: "Web Design Platform",
+    brandColor: "#4353FF",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/wordpress/0A0A0A",
+    label: "WordPress",
+    desc: "Content Management System",
+    brandColor: "#21759B",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/microsoftoffice/0A0A0A",
+    label: "Microsoft Office",
+    desc: "Productivity Suite",
+    brandColor: "#D83B01",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/microsoftexcel/0A0A0A",
+    label: "Excel",
+    desc: "Spreadsheet Software",
+    brandColor: "#217346",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/microsoftpowerpoint/0A0A0A",
+    label: "PowerPoint",
+    desc: "Presentation Software",
+    brandColor: "#B7472A",
+  },
+  {
+    imgSrc: "https://cdn-icons-png.flaticon.com/512/3050/3050809.png",
+    label: "Graphic Design",
+    desc: "Visual Design",
+    brandColor: "#4A4A4A",
+  },
+  {
+    imgSrc: "https://cdn-icons-png.flaticon.com/512/3050/3050809.png",
+    label: "Logo Design",
+    desc: "Branding Design",
+    brandColor: "#4A4A4A",
+  },
+  {
+    imgSrc: "https://cdn-icons-png.flaticon.com/512/3050/3050809.png",
+    label: "Posters",
+    desc: "Print Design",
+    brandColor: "#4A4A4A",
+  },
+  {
+    imgSrc: "https://cdn-icons-png.flaticon.com/512/3050/3050809.png",
+    label: "Flyers",
+    desc: "Promotional Design",
+    brandColor: "#4A4A4A",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/vercel/0A0A0A",
+    label: "Vercel",
+    desc: "Hosting Platform",
+    brandColor: "#000000",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/render/0A0A0A",
+    label: "Render",
+    desc: "Cloud Hosting",
+    brandColor: "#46E3B7",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/namecheap/0A0A0A",
+    label: "Namecheap",
+    desc: "Domain & Hosting",
+    brandColor: "#DE3723",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/cpanel/0A0A0A",
+    label: "cPanel",
+    desc: "Hosting Control Panel",
+    brandColor: "#FF6C2C",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/cloudways/0A0A0A",
+    label: "Cloudways",
+    desc: "Managed Cloud Hosting",
+    brandColor: "#2F3CFF",
+  },
+  {
+    imgSrc: "https://cdn.simpleicons.org/github/0A0A0A",
+    label: "GitHub",
+    desc: "Version Control & Hosting",
+    brandColor: "#181717",
   },
 ];
 
@@ -152,7 +282,7 @@ const skillCategories = [
     category: "frontend",
     name: "Frontend Development",
     skills: skillItems.filter(skill => 
-      ["React", "Next.js", "Vue.js", "CSS", "TailwindCSS", "JavaScript", "Framer Motion", "WeWeb"].includes(skill.label)
+      ["React", "Next.js", "Vue.js", "CSS", "TailwindCSS", "JavaScript", "Framer Motion", "WeWeb", "Webflow"].includes(skill.label)
     ),
   },
   {
@@ -166,28 +296,49 @@ const skillCategories = [
     category: "backend",
     name: "Backend Development",
     skills: skillItems.filter(skill => 
-      ["NodeJS", "ExpressJS", "PHP", "Laravel", "Xano"].includes(skill.label)
+      ["NodeJS", "ExpressJS", "PHP", "Laravel", "Xano", "Java", "Spring Boot", "Python", "C#"].includes(skill.label)
     ),
   },
   {
     category: "design",
     name: "Design Tools",
     skills: skillItems.filter(skill => 
-      ["Figma"].includes(skill.label)
+      ["Figma", "Dribbble", "Graphic Design", "Logo Design", "Posters", "Flyers"].includes(skill.label)
     ),
   },
   {
     category: "database",
     name: "Databases & Services",
     skills: skillItems.filter(skill => 
-      ["MongoDB", "Appwrite", "Redis", "Firebase", "Supabase"].includes(skill.label)
+      ["MongoDB", "Appwrite", "Redis", "Firebase", "Supabase", "PostgreSQL", "SQL"].includes(skill.label)
+    ),
+  },
+  {
+    category: "data",
+    name: "Data Science",
+    skills: skillItems.filter(skill => 
+      ["Data Science"].includes(skill.label)
     ),
   },
   {
     category: "tools",
     name: "Tools & Platforms",
     skills: skillItems.filter(skill => 
-      ["Lovable", "WeWeb", "Xano"].includes(skill.label)
+      ["Lovable", "WeWeb", "Xano", "Webflow", "WordPress"].includes(skill.label)
+    ),
+  },
+  {
+    category: "productivity",
+    name: "Productivity Software",
+    skills: skillItems.filter(skill => 
+      ["Microsoft Office", "Excel", "PowerPoint"].includes(skill.label)
+    ),
+  },
+  {
+    category: "hosting",
+    name: "Hosting & Deployment",
+    skills: skillItems.filter(skill => 
+      ["Vercel", "Render", "Namecheap", "cPanel", "Cloudways", "GitHub"].includes(skill.label)
     ),
   },
 ];
@@ -207,14 +358,14 @@ const Skills = () => {
         </p>
 
         <Tabs defaultValue="frontend" className="w-full max-w-5xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-6 mb-6 md:mb-8 h-auto flex-wrap">
+          <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-9 mb-6 md:mb-8 h-auto flex-wrap">
             {skillCategories.map((category) => (
               <TabsTrigger 
                 key={category.category} 
                 value={category.category}
                 className="py-1.5 px-2 text-xs md:text-sm whitespace-normal text-center h-auto min-h-9"
               >
-                {isMobile ? category.name.replace(' Development', '').replace(' Tools', '') : category.name}
+                {isMobile ? category.name.replace(' Development', '').replace(' Tools', '').replace(' Software', '') : category.name}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -252,7 +403,15 @@ const Skills = () => {
               "TDD",
               "API Development",
               "User Testing",
-              "Deployment Automation"
+              "Deployment Automation",
+              "Data Analysis",
+              "Database Management",
+              "Content Management",
+              "Branding",
+              "Print Media Design",
+              "Spreadsheet Analysis",
+              "Presentation Design",
+              "Cloud Deployment"
             ].map((skill, index) => (
               <span 
                 key={index} 
